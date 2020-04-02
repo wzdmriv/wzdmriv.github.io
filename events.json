@@ -16,7 +16,37 @@
         "startdate": "2020-04-15",
         "enddate": "",
         "starttime": "12:00",
-        "endtime": "2:00",
+        "endtime": "15:00",
+        "color": "#EF44EF",
+        "url": ""
+      },
+      {
+        "id": 3,
+        "name": "This is a JSON event",
+        "startdate": "2020-04-15",
+        "enddate": "",
+        "starttime": "15:00",
+        "endtime": "16:00",
+        "color": "#EF44EF",
+        "url": ""
+      },
+      {
+        "id": 4,
+        "name": "This is a JSON event",
+        "startdate": "2020-04-15",
+        "enddate": "",
+        "starttime": "12:00",
+        "endtime": "14:00",
+        "color": "#EF44EF",
+        "url": ""
+      },
+      {
+        "id": 5,
+        "name": "This is a JSON event",
+        "startdate": "2020-04-15",
+        "enddate": "",
+        "starttime": "8:00",
+        "endtime": "10:00",
         "color": "#EF44EF",
         "url": ""
       }
