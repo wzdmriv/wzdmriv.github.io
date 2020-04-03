@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <link rel="stylesheet" href="css/monthly.css">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/monthly.js"></script>
         <script type="text/javascript" src="js/schedule.js"></script>
+        <script src="config.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
         <script>
                 var db = firebase.database();
                 var chatAll = db.ref("/chat/all");
@@ -21,12 +25,9 @@
                 window.onload = function() {
                  document.getElementById("btnChangeData").onclick = changeData;
                 };
-              </script>
+        </script>
     </head>
     <body>
-        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
-        <script src="config.js"></script>
         <p>リアルタイムデータベース</p>
         <ul>
         <li id="textMessage"></li>
