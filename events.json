@@ -1,7 +1,17 @@
 {
     "monthly": [
+        {
+            "id": 1,
+            "name": "This is a JSON event",
+            "startdate": "2020-04-15",
+            "enddate": "",
+            "starttime": "12:00",
+            "endtime": "15:00",
+            "color": "#EF44EF",
+            "url": ""
+        },
       {
-        "id": 1,
+        "id": 2,
         "name": "This is a JSON event",
         "startdate": "2020-04-15",
         "enddate": "2020-04-18",
@@ -10,16 +20,7 @@
         "color": "#FFB128",
         "url": ""
       },
-      {
-        "id": 2,
-        "name": "This is a JSON event",
-        "startdate": "2020-04-15",
-        "enddate": "",
-        "starttime": "12:00",
-        "endtime": "15:00",
-        "color": "#EF44EF",
-        "url": ""
-      },
+      
       {
         "id": 3,
         "name": "This is a JSON event",

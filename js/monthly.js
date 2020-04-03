@@ -452,7 +452,7 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 		});
 
 		// Click A Day
-		$(document.body).on("click touchstart", parent + " .monthly-day", function (event) {
+		$(document.body).on("click", parent + " .monthly-day", function (event) {
 			// If events, show events list
 			var whichDay = $(this).data("number");
 			if(options.mode === "event" && options.eventList) {
@@ -490,9 +490,9 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 
 		// Clicking an event within the list
 		$(document.body).on("click", parent + " .listed-event", function (event) {
-			var href = $(this).attr("href");
-			// If there isn't a link, don't go anywhere
-			if(!href) {
+			var dEventid = $(this).attr("data-eventid");
+			// If there isn't any id, don't go anywhere
+			if(!dEventid) {
 				event.preventDefault();
 			}
 		});
