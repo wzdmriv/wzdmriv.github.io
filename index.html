@@ -6,7 +6,7 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/monthly.js"></script>
         <script type="text/javascript" src="js/schedule.js"></script>
-        <script src="config.js"></script>
+        
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
         <script>
@@ -28,12 +28,44 @@
         </script>
     </head>
     <body>
-        <p>リアルタイムデータベース</p>
-        <ul>
-        <li id="textMessage"></li>
-        <li><input type="text" name="" id="message"></li>
-        <li><input type="button" value="更新" id="btnChangeData"></li>
-        </ul>
+            <div>
+                    <input id="name" placeholder="名前">
+                    <input id="message" placeholder="メッセージ">
+                    <button id="send">投稿</button>
+                </div>
+                <ul id="messages"></ul>
+                <script>
+                // Initialize Firebase
+                var firebaseConfig = {
+                    apiKey: "AIzaSyBkd4VZq7pTR0VB7F_T5Trk7K4qdfrdQ8I",
+                    authDomain: "res-demo-26a88.firebaseapp.com",
+                    databaseURL: "https://res-demo-26a88.firebaseio.com",
+                    projectId: "res-demo-26a88",
+                    storageBucket: "res-demo-26a88.appspot.com",
+                    messagingSenderId: "108879459276",
+                    appId: "1:108879459276:web:71bc9ef5fa80fc7a386369"
+                };
+                // Initialize Firebase
+                firebase.initializeApp(firebaseConfig);
+                </script>
+                <script>
+                    // データベースの参照を準備
+                    var messagesRef = firebase.database().ref().child('messages')
+                
+                    // 既存メッセージを表示
+                    messagesRef.on('child_added', function(snapshot) {
+                        var msg = snapshot.val();
+                        $('<li>').text(msg.name + ': ' + msg.body).prependTo('#messages');
+                    });
+                
+                    $('#send').click(function() {
+                        // 新規メッセージを投稿
+                        messagesRef.push({
+                            name: $('#name').val(),
+                            body: $('#message').val()
+                        });
+                    });
+                </script>
         <div style="width:100%; max-width:900px; display:inline-block;">
                 <div class="monthly" id="mycalendar"></div>
         </div>
