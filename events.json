@@ -2,7 +2,7 @@
     "monthly": [
         {
             "id": 1,
-            "name": "This is a JSON event",
+            "name": "json",
             "startdate": "2020-04-15",
             "enddate": "",
             "starttime": "12:00",
