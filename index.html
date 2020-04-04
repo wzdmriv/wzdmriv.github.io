@@ -41,14 +41,14 @@
                 font-size: 0.8em;
             }
     
-            input[type="text"] {
+            input[type="text"]{
                 padding: 15px;
                 border-radius: 2px;
                 font-size: 16px;
                 outline: none;
                 border: 2px solid rgba(255, 255, 255, 0.5);
                 background: rgba(63, 78, 100, 0.27);
-                color: #fff;
+                color: #222;
                 width: 250px;
                 box-sizing: border-box;
                 font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -60,6 +60,30 @@
                 border: 2px solid rgba(255, 255, 255, 1);
                 background:#eee;
                 color:#222;
+            }
+            input[type="submit"]{
+                padding: 10px;
+                border-radius: 2px;
+                font-size: 16px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                background: rgba(63, 78, 100, 0.27);
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
+            select{
+                padding: 13px;
+                border-radius: 2px;
+                font-size: 17px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.7);
+                background: rgba(63, 78, 100, 0.27);
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
             }
     
             .button {
@@ -114,7 +138,7 @@
         <form method="get" action="index.html"></form>
             <h3>予約日</h3>
             <div style="display:inline-block; width:250px;">
-                <input type="text" id="mytarget" value="Select Date">
+                <input type="text" id="mytarget" value="" placeholder="Select Date" requied>
                 <div class="monthly" id="mycalendar2"></div>
             </div>
             <h3>時間帯</h3>
@@ -128,10 +152,28 @@
                 <option value="12">12:00</option>
                 <option value="13">13:00</option>
                 </select>
+                -
+                <select name="fTime" required>
+                        <option value="">選択してください</option>
+                        <option value="08">08:00</option>
+                        <option value="09">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                </select>
             </p>
 
             <h3>内容</h3>
+                <select name="purpose" required>
+                    <option value="">選択してください</option>
+                    <option value="ind">個人練習</option>
+                    <option value="band">バンド練習</option>
+                    <option value="sess">セッション</option>
+                    <option value="other">その他</option>
+                </select>
             <br>
+            
             <p><input type="submit" value="送信する"></p>
         </form>
     </body>
