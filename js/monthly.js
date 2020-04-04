@@ -491,10 +491,8 @@ Monthly 2.2.2 by Kevin Thornbloom is licensed under a Creative Commons Attributi
 		// Clicking an event within the list
 		$(document.body).on("click", parent + " .listed-event", function (event) {
 			var dEventid = $(this).attr("data-eventid");
-			// If there isn't any id, don't go anywhere
-			if(!dEventid) {
-				event.preventDefault();
-			}
+			event.preventDefault();
+			chatAll.set({dEventid});
 		});
 
 	}
