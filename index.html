@@ -1,58 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
         <link rel="stylesheet" href="css/monthly.css">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/monthly.js"></script>
         <script type="text/javascript" src="js/schedule.js"></script>
-        
-        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
-        <script>
-                var db = firebase.database();
-                var chatAll = db.ref("/chat/all");
-                //DB内容が変更されたとき実行される
-                chatAll.on("value", function(snapshot) {
-                  document.getElementById("textMessage").innerText = snapshot.val().message;
-                });
-                //入力内容を更新した時
-                var changeData = function(){
-                  var message = document.getElementById("message").value;
-                  chatAll.set({message:message});
-                }
-                //htmlロードが完了したらボタンにイベントを設定
-                window.onload = function() {
-                 document.getElementById("btnChangeData").onclick = changeData;
-                };
-        </script>
     </head>
+
     <body>
-            <script type="text/javascript" src="js/config.js"></script>
-                <div>
-                    <input id="name" placeholder="名前">
-                    <input id="message" placeholder="メッセージ">
-                    <button id="send">投稿</button>
-                </div>
-                <ul id="messages"></ul>
-                <script>
-                    // データベースの参照を準備
-                    var messagesRef = firebase.database().ref().child('messages')
                 
-                    // 既存メッセージを表示
-                    messagesRef.on('child_added', function(snapshot) {
-                        var msg = snapshot.val();
-                        $('<li>').text(msg.name + ': ' + msg.body).prependTo('#messages');
-                    });
-                
-                    $('#send').click(function() {
-                        // 新規メッセージを投稿
-                        messagesRef.push({
-                            name: $('#name').val(),
-                            body: $('#message').val()
-                        });
-                    });
-                </script>
         <div style="width:100%; max-width:900px; display:inline-block;">
                 <div class="monthly" id="mycalendar"></div>
         </div>
