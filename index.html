@@ -73,6 +73,14 @@
                 box-sizing: border-box;
                 font-family: "Trebuchet MS", Helvetica, sans-serif;
             }
+            input[type="submit"]:hover {
+                border: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            input[type="submit"]:focus {
+                border: 2px solid rgba(255, 255, 255, 1);
+                background:#eee;
+                color:#222;
+            }
             select{
                 padding: 13px;
                 border-radius: 2px;
@@ -137,6 +145,8 @@
         <br>
         <form method="get" action="index.html"></form>
         <br>
+            <h3>予約名</h3>
+            <input type="text" id="dName" value="" placeholder="Name" requied>
             <h3>予約日</h3>
             <div style="display:inline-block; width:250px;">
                 <input type="text" id="mytarget" value="" placeholder="Select Date" requied readonly>
