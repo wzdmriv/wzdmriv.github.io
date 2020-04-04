@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<meta charset='utf-8'>
 <html>
     <head>
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
@@ -11,10 +12,18 @@
     </head>
 
     <body>
+        <h1>東大POMP</h1>
+        <h2>部室予約カレンダー</h2>
+        <br>
+        <h3>予約日</h3>
         <div style="display:inline-block; width:250px;">
-            <input type="text" id="mytarget" value="Select Date">
+            <input type="button" id="mytarget" value="Select Date">
             <div class="monthly" id="mycalendar2"></div>
         </div>
+        <h3>時間帯</h3>
+        <br>
+        <h3>内容</h3>
+        <br>
         <div style="width:100%; max-width:900px; display:inline-block;">
                 <div class="monthly" id="mycalendar"></div>
         </div>
