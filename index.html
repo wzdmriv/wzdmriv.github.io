@@ -2,6 +2,7 @@
 <meta charset='utf-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 <html>
     <head>
         <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
@@ -9,207 +10,17 @@
         <script type="text/javascript" src="js/config.js"></script>
         <script type="text/javascript" src="js/firebase.js"></script>
         <link rel="stylesheet" href="css/monthly.css">
+        <link rel="stylesheet" href="css/main.css">
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/monthly.js"></script>
         <script type="text/javascript" src="js/schedule.js"></script>
         <script type="text/javascript" src="js/function.js"></script>
-        <style type="text/css">
-            body, html {
-                padding:0px;
-                margin:0px;
-                background: url('images/bg.jpg') center;
-                background-size:cover;
-                background-attachment: fixed;
-                text-align:center;
-                color:#000;
-                line-height: 1.4em;
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
-            body {
-                padding:10vh 0;
-            }
-            h1 {
-                font-family: 'Yanone Kaffeesatz', sans-serif;
-                text-align: center;
-                font-size: 50px;
-                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2); */
-            }
-            h2 {
-                font-family: 'Yanone Kaffeesatz', sans-serif;
-                font-size:30px;
-                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); */
-                color:#000;
-            }
-            .monthly {
-                box-shadow: 0 13px 40px rgba(0, 0, 0, 0.5);
-                font-size: 0.8em;
-                
-            }
-            #modal-content{
-	            width:70%;
-	            margin:1.5em auto 0;
-	            padding:10px 20px;
-	            border:2px solid #aaa;
-	            background:#fff;
-                z-index:20;
-                position:fixed;
-                display: none;
-            }
-            .modal-p{
-	            margin-top:1em;
-            }
-
-            .modal-p:first-child{
-	            margin-top:0;
-            }
-
-            .button-link{
-	            color:#00f;
-            	text-decoration:underline;
-            }
- 
-            .button-link:hover{
-	            cursor:pointer;
-	            color:#f00;
-            }
-            #modal-overlay{
-	            z-index:1;
-	            display:none;
-	            position:fixed;
-	            top:0;
-	            left:0;
-	            width:100%;
-	            height:120%;
-	            background-color:rgba(0,0,0,0.75);
-            }
-            input[type="radio"]{
-                display: none;
-            }
-            input[type="radio"]:checked + label {
-                background: rgba(63, 78, 100, 0.27);
-                color: #000;
-            }
-            .label{
-                display: block; 
-                float: left;
-                padding: 7px;
-                border-radius: 2px;
-                font-size: 16px;
-                outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                background: #eee;
-                color: #222;
-                width: 200px;
-                box-sizing: border-box;
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
-            input[type="text"]{
-                padding: 10px;
-                border-radius: 2px;
-                font-size: 16px;
-                outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                background: rgba(63, 78, 100, 0.27);
-                color: #222;
-                width: 200px;
-                box-sizing: border-box;
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
-            input[type="text"]:hover {
-                border: 2px solid rgba(255, 255, 255, 0.7);
-            }
-            input[type="text"]:focus {
-                border: 2px solid rgba(255, 255, 255, 1);
-                background:#eee;
-                color:#222;
-            }
-            input[type="button"]{
-                padding: 7px;
-                border-radius: 2px;
-                font-size: 16px;
-                outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                background: rgba(63, 78, 100, 0.27);
-                color: #222;
-                width: 200px;
-                box-sizing: border-box;
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
-            input[type="button"]:hover {
-                border: 2px solid rgba(255, 255, 255, 0.7);
-            }
-            input[type="button"]:focus {
-                border: 2px solid rgba(255, 255, 255, 1);
-                background:#eee;
-                color:#222;
-            }
-            select{
-                padding: 7px;
-                border-radius: 2px;
-                font-size: 17px;
-                outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.7);
-                background: rgba(63, 78, 100, 0.27);
-                color: #222;
-                width: 200px;
-                box-sizing: border-box;
-                font-family: "Trebuchet MS", Helvetica, sans-serif;
-            }
-            .button {
-                display: inline-block;
-                padding: 15px 25px;
-                margin: 25px 0 75px 0;
-                border-radius: 3px;
-                color: #fff;
-                background: #000;
-                letter-spacing: .4em;
-                text-decoration: none;
-                font-size: 13px;
-            }
-            .button:hover {
-                background: #3b587a;
-            }
-            
-            .desc {
-                max-width: 250px;
-                text-align: left;
-                font-size:14px;
-                padding-top:30px;
-                line-height: 1.4em;
-            }
-            .resize {
-                background: #222;
-                display: inline-block;
-                padding: 6px 15px;
-                border-radius: 22px;
-                font-size: 13px;
-            }
-            .parent {
-                text-align: center;
-            }
-            .select {
-                display: inline-block;
-            }
-            form{
-                display:none;
-            }
-            @media (max-height: 700px) {
-                .sticky {
-                    position: relative;
-                }
-            }
-            @media (max-width: 600px) {
-                .resize {
-                    display: none;
-                }
-            }
-        </style>
         <title>東大POMP 部室予約カレンダー</title>
     </head>
 
     <body>
-        <h1>東大POMP</h1>
-        <h2>部室予約カレンダー</h2>
+        <h2>東大POMP</h2>
+        <h3>部室予約カレンダー</h3>
         <br>
         <div class="parent">
             <div class = "select">
@@ -285,7 +96,7 @@
             <br><br><br>
             <div id="errorbox"></div>
             <input type="button" value="送信" onclick="sendData();"/>
-            </form>
+        </form>
 
             <div id="modal-content">
                     <div id="nametag"></div>

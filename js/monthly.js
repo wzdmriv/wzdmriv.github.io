@@ -503,7 +503,7 @@ var resAddress;
 			//閉じる
 			$("#modal-overlay,#modal-close").unbind().click(function(){
 				//[#modal-overlay]と[#modal-close]をフェードアウトする
-				$("#modal-content,#modal-overlay").fadeOut("slow",function(){
+				$("#modal-content,#modal-overlay").fadeOut("fast",function(){
 					$("#modal-overlay").remove();
 				});
 			});

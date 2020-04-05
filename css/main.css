@@ -1,0 +1,197 @@
+body, html {
+                padding:0px;
+                margin:0px;
+                background: url('images/bg.jpg') center;
+                background-size:cover;
+                background-attachment: fixed;
+                text-align:center;
+                color:#000;
+                line-height: 1.4em;
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            body {
+                padding:10vh 0;
+            }
+            h1 {
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                text-align: center;
+                font-size: 50px;
+                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2); */
+            }
+            h2 {
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-size:37px;
+                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); */
+                color:#000;
+            }
+            h3{
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            .monthly {
+                /* box-shadow: 0 13px 40px rgba(0, 0, 0, 0.5); */
+                border: 2px solid #ddd;
+                font-size: 0.8em;
+                
+            }
+            #modal-content{
+	            width:70%;
+	            margin:1.5em auto 0;
+	            padding:10px 20px;
+	            border:2px solid #aaa;
+	            background:#fff;
+                z-index:20;
+                position:fixed;
+                display: none;
+            }
+            .modal-p{
+	            margin-top:1em;
+            }
+
+            .modal-p:first-child{
+	            margin-top:0;
+            }
+
+            .button-link{
+	            color:#00f;
+            	text-decoration:underline;
+            }
+ 
+            .button-link:hover{
+	            cursor:pointer;
+	            color:#f00;
+            }
+            #modal-overlay{
+	            z-index:1;
+	            display:none;
+	            position:fixed;
+	            top:0;
+	            left:0;
+	            width:100%;
+	            height:120%;
+	            background-color:rgba(0,0,0,0.75);
+            }
+            input[type="radio"]{
+                display: none;
+            }
+            input[type="radio"]:checked + label {
+                background: rgba(63, 78, 100, 0.27);
+                color: #000;
+            }
+            .label{
+                display: block; 
+                float: left;
+                padding: 7px;
+                border-radius: 2px;
+                font-size: 16px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                background: #eee;
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            input[type="text"]{
+                padding: 10px;
+                border-radius: 2px;
+                font-size: 16px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                background: rgba(63, 78, 100, 0.27);
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            input[type="text"]:hover {
+                border: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            input[type="text"]:focus {
+                border: 2px solid rgba(255, 255, 255, 1);
+                background:#eee;
+                color:#222;
+            }
+            input[type="button"]{
+                padding: 7px;
+                border-radius: 2px;
+                font-size: 16px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                background: rgba(63, 78, 100, 0.27);
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            input[type="button"]:hover {
+                border: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            input[type="button"]:focus {
+                border: 2px solid rgba(255, 255, 255, 1);
+                background:#eee;
+                color:#222;
+            }
+            select{
+                padding: 7px;
+                border-radius: 2px;
+                font-size: 17px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.7);
+                background: rgba(63, 78, 100, 0.27);
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+            }
+            .button {
+                display: inline-block;
+                padding: 15px 25px;
+                margin: 25px 0 75px 0;
+                border-radius: 3px;
+                color: #fff;
+                background: #000;
+                letter-spacing: .4em;
+                text-decoration: none;
+                font-size: 13px;
+            }
+            .button:hover {
+                background: #3b587a;
+            }
+            
+            .desc {
+                max-width: 250px;
+                text-align: left;
+                font-size:14px;
+                padding-top:30px;
+                line-height: 1.4em;
+            }
+            .resize {
+                background: #222;
+                display: inline-block;
+                padding: 6px 15px;
+                border-radius: 22px;
+                font-size: 13px;
+            }
+            .parent {
+                text-align: center;
+            }
+            .select {
+                display:inline-block;
+            }
+            form{
+                display:none;
+                width: 400px;
+                height: 700px;
+                border: 2px solid #ddd;
+                margin: 5px;
+            }
+            @media (max-height: 700px) {
+                .sticky {
+                    position: relative;
+                }
+            }
+            @media (max-width: 600px) {
+                .resize {
+                    display: none;
+                }
+            }
