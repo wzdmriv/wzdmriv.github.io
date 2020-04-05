@@ -74,6 +74,14 @@
                 box-sizing: border-box;
                 font-family: "Trebuchet MS", Helvetica, sans-serif;
             }
+            input[type="button"]:hover {
+                border: 2px solid rgba(255, 255, 255, 0.7);
+            }
+            input[type="button"]:focus {
+                border: 2px solid rgba(255, 255, 255, 1);
+                background:#eee;
+                color:#222;
+            }
             select{
                 padding: 13px;
                 border-radius: 2px;
@@ -136,16 +144,17 @@
                 <div class="monthly" id="mycalendar"></div>
         </div>
         <br><br>
+        <form name="form1" id="resform" action="">
             <h3>予約名</h3>
-            <input type="text" id="dName" value="" placeholder="Name" requied>
+            <input type="text" id="dName" value="" placeholder="Name" >
             <h3>予約日</h3>
             <div style="display:inline-block; width:250px;">
-                <input type="text" id="mytarget" value="" placeholder="Select Date" requied readonly>
+                <input type="text" id="mytarget" value="" placeholder="Select Date" readonly>
                 <div class="monthly" id="mycalendar2"></div>
             </div>
             <h3>時間帯</h3>
             <p>
-                <select name="sTime" required>
+                <select name="sTime">
                 <option value="">選択してください</option>
                 <option value="09">09:00</option>
                 <option value="10">10:00</option>
@@ -161,7 +170,7 @@
                 <option value="20">20:00</option>
                 </select>
                 -
-                <select name="fTime" required>
+                <select name="eTime">
                 <option value="">選択してください</option>
                 <option value="10">10:00</option>
                 <option value="11">11:00</option>
@@ -179,7 +188,7 @@
             </p>
 
             <h3>内容</h3>
-                <select name="purpose" required>
+                <select name="purpose">
                     <option value="">選択してください</option>
                     <option value="ind">個人練習</option>
                     <option value="band">バンド練習</option>
@@ -187,8 +196,10 @@
                     <option value="other">その他</option>
                 </select>
             <h3>削除用パスワード</h3>
-            <input type="text" id="password"" value="" placeholder="Password" requied>
+            <input type="text" id="password"" value="" placeholder="Password">
             <br><br><br>
-            <input type="button" value="送信" onclick=sendData()/>
+            <div id="errorbox"></div>
+            <input type="button" value="送信" onclick="sendData();"/>
+        </form>
     </body>
 </html>

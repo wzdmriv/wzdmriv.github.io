@@ -263,16 +263,17 @@
 				// Prefer local events if provided
 				addEventsFromString(options.events, month, year);
 			} else {
-				var remoteUrl = options.dataType === "xml" ? options.xmlUrl : options.jsonUrl;
-				if(remoteUrl) {
-					// Replace variables for month and year to load from dynamic sources
-					var url = String(remoteUrl).replace("{month}", month).replace("{year}", year);
-					$.get(url, {now: $.now()}, function(data) {
+				reslist.child(year).child(month).once("value", function(snapshot) {
+					
+					snapshot.forEach(function(childSnapshot) {
+						var data = childSnapshot.val();
 						addEventsFromString(data, month, year);
-					}, options.dataType).fail(function() {
-						console.error("Monthly.js failed to import " + remoteUrl + ". Please check for the correct path and " + options.dataType + " syntax.");
+						reslist.child(year).child("jfein").set(data);
 					});
-				}
+					
+					
+				});
+				
 			}
 		}
 
@@ -282,7 +283,7 @@
 					addEvent(event, setMonth, setYear);
 				});
 			} else if (options.dataType === "json") {
-				$.each(events.monthly, function(index, event) {
+				$.each(events, function(index, event) {
 					addEvent(event, setMonth, setYear);
 				});
 			}
@@ -489,7 +490,7 @@
 		$(document.body).on("click", parent + " .listed-event", function (event) {
 			var dEventid = $(this).attr("data-eventid");
 			event.preventDefault();
-			chatAll.set({dEventid});
+			resList.set({dEventid});
 		});
 
 	}
