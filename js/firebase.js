@@ -14,14 +14,7 @@ function sendData(){
   var num1 = document.forms.resform.sTime.selectedIndex;
   var num2 = document.forms.resform.eTime.selectedIndex;
   var starttime = document.forms.resform.sTime.options[num1].value;
-  var starttime2 = starttime + ":00";
   var endtime = document.forms.resform.eTime.options[num2].value;
-  var endtime2 = "";
-  if (endtime == "21"){
-      endtime2 = "21:30"
-  }else{
-      endtime2 = endtime + ":00";
-  }
   var num3 = document.forms.resform.purpose.selectedIndex;
   var purpose = document.forms.resform.purpose.options[num3].value;
   var color;
@@ -40,6 +33,7 @@ function sendData(){
           break;
   }
   var password = document.forms.resform.password.value;
+  var address = splitday[0]+"/"+splitday[1]+"/"+splitday[2]+starttime;
   if (name=="" || selectday=="" || starttime=="" || endtime=="" || color=="" || password==""){
     target = document.getElementById("errorbox");
     target.innerHTML = "未入力項目があります";
@@ -47,11 +41,11 @@ function sendData(){
     target = document.getElementById("errorbox");
     target.innerHTML = "有効な練習時間を入力してください";
   }else{
-    var newPostKey = reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+"/"+starttime).push().key;
-    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"startdate":selectday,"enddate":"","starttime":starttime2,"endtime":endtime2,"color":color,"password":password,"url":""});
+    var newPostKey = reslist.push().key;
+    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
+    reslist.child("keylist").child(newPostKey).set({address:address});
     target = document.getElementById("errorbox");
     target.innerHTML = "送信完了";
     window.location.reload();
   }
- 
 }

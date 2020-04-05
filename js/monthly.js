@@ -1,13 +1,6 @@
-function selectMode() {
-	var element = document.getElementById( "cal" ) ;
-	if ( element.checked ) {
-		document.getElementById("resform").style.display ="none";
-		document.getElementById("calendar").style.display ="inline-block";
-	}else{
-		document.getElementById("calendar").style.display ="none";
-		document.getElementById("resform").style.display ="inline-block";
-	}
-}
+var resdata;
+var resKey;
+var resAddress;
 (function ($) {
 	"use strict";
 	$.fn.extend({
@@ -215,8 +208,9 @@ function selectMode() {
 				return;
 			}
 
-			var startTime = _getEventDetail(event, "starttime"),
-				timeHtml = "",
+			var startTime2 = _getEventDetail(event, "starttime");
+			var startTime = startTime2 + ":00";
+			var	timeHtml = "",
 				eventURL = _getEventDetail(event, "url"),
 				eventTitle = _getEventDetail(event, "name"),
 				eventClass = _getEventDetail(event, "class"),
@@ -227,9 +221,15 @@ function selectMode() {
 				dayEndTags = "</span></div>";
 
 			if(startTime) {
-				var endTime = _getEventDetail(event, "endtime");
-				timeHtml = '<div><div class="monthly-list-time-start">' + formatTime(startTime) + "</div>"
-					+ (endTime ? '<div class="monthly-list-time-end">' + formatTime(endTime) + "</div>" : "")
+				var endTime2 = _getEventDetail(event, "endtime");
+				var endTime = "";
+  				if (endTime2 == "21"){
+    				  endTime = "21:30"
+				}else{
+    				  endTime = endTime2 + ":00";
+  				}
+				timeHtml = '<div><div class="monthly-list-time-start">' + startTime + "</div>"
+					+ (endTime ? '<div class="monthly-list-time-end">' + endTime + "</div>" : "")
 					+ "</div>";
 			}
 
@@ -273,16 +273,11 @@ function selectMode() {
 				addEventsFromString(options.events, month, year);
 			} else {
 				reslist.child(year).child(month).once("value", function(snapshot) {
-					
 					snapshot.forEach(function(childSnapshot) {
 						var data = childSnapshot.val();
 						addEventsFromString(data, month, year);
-						reslist.child(year).child("jfein").set(data);
 					});
-					
-					
 				});
-				
 			}
 		}
 
@@ -385,21 +380,6 @@ function selectMode() {
 			return options.dataType === "xml" ? $(event).find(nodeName).text() : event[nodeName];
 		}
 
-		// Returns a 12-hour format hour/minute with period. Opportunity for future localization.
-		function formatTime(value) {
-			var timeSplit = value.split(":");
-			var hour = parseInt(timeSplit[0], 10);
-			var period = "AM";
-			if(hour > 12) {
-				hour -= 12;
-				period = "PM";
-			} else if (hour == 12) {
-				period = "PM";
-			} else if(hour === 0) {
-				hour = 12;
-			}
-			return hour + ":" + String(timeSplit[1]) + " " + period;
-		}
 
 		function setNextMonth() {
 			var	setMonth = $(parent).data("setMonth"),
@@ -500,12 +480,54 @@ function selectMode() {
 		});
 
 		// Clicking an event within the list
+		
 		$(document.body).on("click", parent + " .listed-event", function (event) {
-			var dEventid = $(this).attr("data-eventid");
 			event.preventDefault();
-			resList.set({dEventid});
+			resKey = $(this).attr("data-eventid");
+			
+			reslist.child("keylist").child(resKey).once('value').then(function(snapshot) {
+				resAddress = snapshot.val();
+				reslist.child(resAddress.address).child(resKey).once('value').then(function(snapshot) {
+					resdata = snapshot.val();
+					showData();
+				});
+			});
+			$(this).blur();
+			if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;
+			$("body").append('<div id="modal-overlay"></div>');
+			$("#modal-overlay").fadeIn("fast");
+			centeringModalSyncer();
+			$("#modal-content").fadeIn("fast");
+			
+			
+			//閉じる
+			$("#modal-overlay,#modal-close").unbind().click(function(){
+				//[#modal-overlay]と[#modal-close]をフェードアウトする
+				$("#modal-content,#modal-overlay").fadeOut("slow",function(){
+					$("#modal-overlay").remove();
+				});
+			});
 		});
+		$( window ).resize( centeringModalSyncer ) ;
 
+			//センタリングを実行する関数
+			function centeringModalSyncer() {
+
+				//画面(ウィンドウ)の幅、高さを取得
+				var w = $( window ).width() ;
+				var h = $( window ).height() ;
+
+				// コンテンツ(#modal-content)の幅、高さを取得
+				// jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+				//var cw = $( "#modal-content" ).outerWidth( {margin:true} );
+				//var ch = $( "#modal-content" ).outerHeight( {margin:true} );
+				var cw = $( "#modal-content" ).outerWidth();
+				var ch = $( "#modal-content" ).outerHeight();
+
+				//センタリングを実行する
+				$( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+			}
+		
 	}
 	});
 }(jQuery));
