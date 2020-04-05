@@ -51,6 +51,7 @@ function sendData(){
     reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"startdate":selectday,"enddate":"","starttime":starttime2,"endtime":endtime2,"color":color,"password":password,"url":""});
     target = document.getElementById("errorbox");
     target.innerHTML = "送信完了";
+    window.location.reload();
   }
  
 }

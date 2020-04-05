@@ -1,4 +1,13 @@
-
+function selectMode() {
+	var element = document.getElementById( "cal" ) ;
+	if ( element.checked ) {
+		document.getElementById("resform").style.display ="none";
+		document.getElementById("calendar").style.display ="inline-block";
+	}else{
+		document.getElementById("calendar").style.display ="none";
+		document.getElementById("resform").style.display ="inline-block";
+	}
+}
 (function ($) {
 	"use strict";
 	$.fn.extend({
@@ -417,6 +426,10 @@
 				$(parent + " .monthly-header-title").prepend('<a href="#" class="monthly-cal"></a>');
 			}
 		}
+
+		// Function to mode select
+
+		
 
 		// Advance months
 		$(document.body).on("click", parent + " .monthly-next", function (event) {

@@ -30,20 +30,41 @@
             h1 {
                 font-family: 'Yanone Kaffeesatz', sans-serif;
                 text-align: center;
-                font-size: 77px;
-                text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
+                font-size: 60px;
+                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2); */
             }
             h2 {
                 font-family: 'Yanone Kaffeesatz', sans-serif;
                 font-size:30px;
-                text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+                /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); */
                 color:#000;
             }
             .monthly {
                 box-shadow: 0 13px 40px rgba(0, 0, 0, 0.5);
                 font-size: 0.8em;
+                
             }
-    
+            input[type="radio"]{
+                display: none;
+            }
+            input[type="radio"]:checked + label {
+                background: rgba(63, 78, 100, 0.27);
+                color: #000;
+            }
+            .label{
+                display: block; 
+                float: left;
+                padding: 10px;
+                border-radius: 2px;
+                font-size: 16px;
+                outline: none;
+                border: 2px solid rgba(255, 255, 255, 0.5);
+                background: #eee;
+                color: #222;
+                width: 200px;
+                box-sizing: border-box;
+                font-family: "Trebuchet MS", Helvetica, sans-serif;
+            }
             input[type="text"]{
                 padding: 15px;
                 border-radius: 2px;
@@ -96,7 +117,6 @@
                 box-sizing: border-box;
                 font-family: "Trebuchet MS", Helvetica, sans-serif;
             }
-    
             .button {
                 display: inline-block;
                 padding: 15px 25px;
@@ -111,6 +131,7 @@
             .button:hover {
                 background: #3b587a;
             }
+            
             .desc {
                 max-width: 250px;
                 text-align: left;
@@ -124,6 +145,15 @@
                 padding: 6px 15px;
                 border-radius: 22px;
                 font-size: 13px;
+            }
+            .parent {
+                text-align: center;
+            }
+            .select {
+                display: inline-block;
+            }
+            form{
+                display:none;
             }
             @media (max-height: 700px) {
                 .sticky {
@@ -142,13 +172,25 @@
         <h1>東大POMP</h1>
         <h2>部室予約カレンダー</h2>
         <br>
-        <div style="width:100%; max-width:900px; display:inline-block;">
-                <div class="monthly" id="mycalendar"></div>
+        <div class="parent">
+            <div class = "select">
+            <input type="radio" name="modeselect" value="cal" id="cal" onclick="selectMode();" checked>
+            <label for="cal" class = "label">カレンダー</label>
+            <input type="radio" name="modeselect" value="res" id="res" onclick="selectMode();">
+            <label for="res" class = "label">予約</label>
+            </div>
         </div>
-        <br><br>
+
+        <!-- calendar -->
+        <br>
+        <div style="width:100%; max-width:900px; display:inline-block;" id="calendar">
+                <div class="monthly" id="mycalendar" ></div>
+        </div>
+
+        <!-- reservationform -->
         <form name="form1" id="resform" action="">
             <h3>予約名</h3>
-            <input type="text" id="dName" value="" placeholder="Name" >
+            <input type="text" id="dName" value="" placeholder="Name">
             <h3>予約日</h3>
             <div style="display:inline-block; width:250px;">
                 <input type="text" id="mytarget" value="" placeholder="Select Date" readonly>
@@ -156,6 +198,7 @@
             </div>
             <h3>時間帯</h3>
             <p>
+                開始:
                 <select name="sTime">
                 <option value="">選択してください</option>
                 <option value="09">09:00</option>
@@ -171,7 +214,8 @@
                 <option value="19">19:00</option>
                 <option value="20">20:00</option>
                 </select>
-                -
+                <br>
+                終了:
                 <select name="eTime">
                 <option value="">選択してください</option>
                 <option value="10">10:00</option>
@@ -202,6 +246,6 @@
             <br><br><br>
             <div id="errorbox"></div>
             <input type="button" value="送信" onclick="sendData();"/>
-        </form>
+            </form>
     </body>
 </html>
