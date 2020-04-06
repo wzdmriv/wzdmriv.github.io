@@ -5,7 +5,6 @@ var resAddress;
 	"use strict";
 	$.fn.extend({
 		monthly: function(customOptions) {
-
 			// These are overridden by options declared in footer
 			var defaults = {
 				dataType: "xml",
