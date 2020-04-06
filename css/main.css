@@ -1,37 +1,47 @@
 body, html {
                 padding:0px;
                 margin:0px;
-                background: url('images/bg.jpg') center;
-                background-size:cover;
-                background-attachment: fixed;
                 text-align:center;
-                color:#000;
+                color:#222;
                 line-height: 1.4em;
                 font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
             }
             body {
                 padding:10vh 0;
+                background: #eee;
             }
             h1 {
                 font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 text-align: center;
                 font-size: 50px;
+                color:#222;
                 /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2); */
             }
             h2 {
                 font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 font-size:37px;
                 /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); */
-                color:#000;
+                color:#222;
             }
             h3{
                 font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                color:#222;
+                font-size:22px;
+            }
+            h4{
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                color:#222;
+                font-size:18px;
+            }
+            h5{
+                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                color:#333;
+                font-size:16px;
             }
             .monthly {
                 /* box-shadow: 0 13px 40px rgba(0, 0, 0, 0.5); */
                 border: 2px solid #ddd;
                 font-size: 0.8em;
-                
             }
             #modal-content{
 	            width:640px;
@@ -43,8 +53,8 @@ body, html {
                 position:fixed;
                 display: none;
             }
-            #howtouse{
-	            width:640px;
+            #howtopop{
+	            width:720px;
 	            margin:1.5em auto 0;
 	            padding:10px 20px;
 	            border:2px solid #aaa;
@@ -52,6 +62,8 @@ body, html {
                 z-index:20;
                 position:fixed;
                 display: none;
+                max-height: 70%;
+                overflow: auto;
             }
             .modal-p{
 	            margin-top:1em;
@@ -94,7 +106,7 @@ body, html {
                 border-radius: 2px;
                 font-size: 16px;
                 outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
+                border: 2px solid #ddd;
                 background: #eee;
                 color: #222;
                 width: 170px;
@@ -126,7 +138,7 @@ body, html {
                 border-radius: 2px;
                 font-size: 16px;
                 outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
+                border: 2px solid #ddd;
                 background: #eee;
                 color: #222;
                 width: 150px;
@@ -134,10 +146,9 @@ body, html {
                 font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
             }
             input[type="button"]:hover {
-                border: 2px solid rgba(255, 255, 255, 0.7);
+                background: #ddd;
             }
             input[type="button"]:focus {
-                border: 2px solid rgba(255, 255, 255, 1);
                 background:rgba(63, 78, 100, 0.27);
                 color:#222;
             }
@@ -193,8 +204,8 @@ body, html {
                 border-radius: 2px;
                 font-size: 16px;
                 outline: none;
-                border: 2px solid rgba(255, 255, 255, 0.5);
-                background: #ddd;
+                border: 2px solid #ddd;
+                background: #eee;
                 color: #222;
                 width: 120px;
                 box-sizing: border-box;
@@ -215,6 +226,9 @@ body, html {
             @media (max-width: 800px) {
                 #modal-content{
                     width: 80%;
+                }
+                #howtopop{
+                    width: 90%;
                 }
             }
             @media (max-width: 600px) {

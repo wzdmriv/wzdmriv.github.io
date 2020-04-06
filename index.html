@@ -36,6 +36,7 @@
         <br>
         <div style="width:100%; max-width:900px; display:inline-block;" id="calendar">
             <div class="monthly" id="mycalendar" ></div>
+            <br>
         </div>
 
         <!-- reservationform -->
@@ -93,11 +94,13 @@
                     <option value="other">その他</option>
                 </select>
             <h3>削除用パスワード</h3>
-            <input type="text" id="password"" value="" placeholder="Password">
+            <input type="text" id="password" value="" placeholder="Password">
             <br><br><br>
             <div id="errorbox"></div>
             <input type="button" value="送信" onclick="sendData();"/>
         </form>
+        <br><br>
+        
             
             <div id="modal-content">
                     <div id="nametag"></div>
@@ -110,9 +113,54 @@
                     <input type="button" value="削除" onclick="deleteData();"/>
                     <input type="button" value="キャンセル" id="modal-close"/>
             </div>
-            <div id="howtouse">
-                ここにいろいろかく
+            <div id="howtopop">
+                <br>
+                <div class = "select">
+                    <input type="radio" name="contentselect" value="aboutres" id="aboutres" onclick="selectCont();"  checked>
+                    <label for="aboutres" class = "label">予約について</label>
+                    <input type="radio" name="contentselect" value="aboutroom" id="aboutroom" onclick="selectCont();" class="contentselect">
+                    <label for="aboutroom" class = "label">部室について</label>
+                </div>
+                    <br>
+                    <div id="aboutrescont">
+                        <h3 style="border-bottom: solid 2px #222;">練習登録のルール</h3>
+                        <h5 align="left">
+                        ・キャンプラ開館時間は通常平日が９時～２１時半、休日が９時～１９時半です。<br>
+                        ・1時間単位で練習を予約することができます。<br>
+                        ・ただし、キャンプラ閉館直前の時間帯に練習を登録した場合最後の30分も練習できます。つまり1時間半の練習が可能です。<br>
+                        ・一度登録した練習が終了するまで次の練習は登録できません。二重取りは厳禁です。<br>
+                        ・（新歓ライブバンドなど、ごく一部に例外あり。）<br>
+                        ・個人練習の予約は予約日の1週間前から解禁します。<br>
+                        ・中止が決定された練習はすぐに削除してください。<br>
+                        ・同一の時間に練習が登録されているのを発見した場合、管理人に伝えてください。書き込み時間でみて後のほうの人に連絡を入れます。<br>
+                        </h5>
+                    </div>
+                    <div id="aboutroomcont" style="display: none;">
+                        <h3 style="border-bottom: solid 2px #222;">部室利用のルール</h3>
+                        <h4>部室のあけ方・閉め方</h4>
+                        <h5 align="left">
+                        1.部屋に誰もいない場合:POMPカードをキャンプラ受付に出します。部室の鍵がもらえます。<br>
+                        交代する場合:その人にPOMPカードを預け、代わりに受付でカードを交換してもらってください。<br>
+
+                        2.開けます。鍵はわかりやすい場所においておきましょう。部室の場合ドアのフックがよいでしょう。<br>
+
+                        3.部室から誰もいなくなる場合:最後に出る人は必ず施錠して受付に鍵を返却し、POMPカードを受け取ってください。<br>
+                        部屋に人が残る場合:その人からカードを受け取り、受付で自分のカードと交換してください。<br>
+                        </h5>
+
+                        <h4>その他部室利用に関する基本的なルール</h4>
+                        <h5 align="left">
+                        ・練習登録されていない時間は自由に部室を使えます。<br>
+                        ・部室の機材は勝手に持ち出さないようにして下さい。<br>
+                        ・廊下でも音だしが可能です。ホーンの方などにオススメです。<br>
+                        ・ほかの人／バンドの練習が登録されていても荷物の出し入れ等で部室にいることは可能ですが、迷惑にならないようにしましょう。<br>
+                        ・ゴミは散らかさずに必ず捨てましょう。なるべく廊下の大きいゴミ箱へ。部室のゴミ箱がいっぱいになっているのに気づいたら廊下のゴミ箱に捨てましょう。<br>
+                        ・その日最後に部室を出る人は正しい手順で機材の電源を切ってから退室しましょう。<br>
+                        </h5>
+                    </div>
+                <br><br>
                 <input type="button" value="close" id="hclose"/>
+                <br><br>
             </div>
     </body>
 </html>

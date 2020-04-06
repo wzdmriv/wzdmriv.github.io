@@ -9,6 +9,17 @@ function selectMode() {
 	}
 }
 
+function selectCont() {
+	var element2 = document.getElementById( "aboutres" ) ;
+	if ( element2.checked ) {
+		document.getElementById("aboutrescont").style.display ="inline-block";
+		document.getElementById("aboutroomcont").style.display ="none";
+	}else{
+		document.getElementById("aboutroomcont").style.display ="inline-block";
+		document.getElementById("aboutrescont").style.display ="none";
+	}
+}
+
 //データ削除
 function deleteData(){
     var password = document.getElementById("dpassword").value;
@@ -46,11 +57,11 @@ function howtouse(){
             $("body").append('<div id="modal-overlay"></div>');
 			$("#modal-overlay").fadeIn("fast");
 			centeringModalSyncer();
-			$("#howtouse").fadeIn("fast");
+			$("#howtopop").fadeIn("fast");
 			//閉じる
 			$("#modal-overlay,#hclose").unbind().click(function(){
 				//[#modal-overlay]と[#modal-close]をフェードアウトする
-				$("#howtouse,#modal-overlay").fadeOut("fast",function(){
+				$("#howtopop,#modal-overlay").fadeOut("fast",function(){
 					$("#modal-overlay").remove();
 				});
 			});
@@ -69,8 +80,11 @@ function centeringModalSyncer() {
     //var cw = $( "#modal-content" ).outerWidth( {margin:true} );
     //var ch = $( "#modal-content" ).outerHeight( {margin:true} );
     var cw = $( "#modal-content" ).outerWidth();
-    var ch = $( "#modal-content" ).outerHeight();
+	var ch = $( "#modal-content" ).outerHeight();
+	var ccw = $( "#howtopop" ).outerWidth();
+    var cch = $( "#howtopop" ).outerHeight();
 
     //センタリングを実行する
-    $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+	$( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
+	$( "#howtopop" ).css( {"left": ((w - ccw)/2) + "px","top": ((h - cch)/2) + "px"} ) ;
 }
