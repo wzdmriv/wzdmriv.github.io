@@ -469,7 +469,7 @@ var resAddress;
 					event.preventDefault();
 				} else {
 					// Otherwise, select the date ...
-					$(String(options.target)).val(formatDate(setYear, setMonth, whichDay));
+					$(String(options.target)).val(setYear+"/"+setMonth+"/"+whichDay);
 					// ... and then hide the calendar if it started that way
 					if(options.startHidden) {
 						$(parent).hide();
@@ -509,24 +509,6 @@ var resAddress;
 			});
 		});
 		$( window ).resize( centeringModalSyncer ) ;
-
-			//センタリングを実行する関数
-			function centeringModalSyncer() {
-
-				//画面(ウィンドウ)の幅、高さを取得
-				var w = $( window ).width() ;
-				var h = $( window ).height() ;
-
-				// コンテンツ(#modal-content)の幅、高さを取得
-				// jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
-				//var cw = $( "#modal-content" ).outerWidth( {margin:true} );
-				//var ch = $( "#modal-content" ).outerHeight( {margin:true} );
-				var cw = $( "#modal-content" ).outerWidth();
-				var ch = $( "#modal-content" ).outerHeight();
-
-				//センタリングを実行する
-				$( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
-			}
 		
 	}
 	});

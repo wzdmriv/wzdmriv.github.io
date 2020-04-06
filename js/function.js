@@ -19,7 +19,6 @@ function deleteData(){
         target.innerHTML = "削除が完了しました";
         window.location.reload();
     }else{
-        showData();
         target = document.getElementById("errorbox2");
         target.innerHTML = "パスワードが違います";
     }
@@ -40,4 +39,38 @@ function showData(){
   				}
     		target3 = document.getElementById("timetag");
     		target3.innerHTML = starttime + " - " + endtime;
+}
+function howtouse(){
+    $(function(){
+            if($("#modal-overlay")[0]) $("#modal-overlay").remove() ;
+            $("body").append('<div id="modal-overlay"></div>');
+			$("#modal-overlay").fadeIn("fast");
+			centeringModalSyncer();
+			$("#howtouse").fadeIn("fast");
+			//閉じる
+			$("#modal-overlay,#hclose").unbind().click(function(){
+				//[#modal-overlay]と[#modal-close]をフェードアウトする
+				$("#howtouse,#modal-overlay").fadeOut("fast",function(){
+					$("#modal-overlay").remove();
+				});
+			});
+    });
+    $( window ).resize( centeringModalSyncer ) ;
+}
+
+function centeringModalSyncer() {
+
+    //画面(ウィンドウ)の幅、高さを取得
+    var w = $( window ).width() ;
+    var h = $( window ).height() ;
+
+    // コンテンツ(#modal-content)の幅、高さを取得
+    // jQueryのバージョンによっては、引数[{margin:true}]を指定した時、不具合を起こします。
+    //var cw = $( "#modal-content" ).outerWidth( {margin:true} );
+    //var ch = $( "#modal-content" ).outerHeight( {margin:true} );
+    var cw = $( "#modal-content" ).outerWidth();
+    var ch = $( "#modal-content" ).outerHeight();
+
+    //センタリングを実行する
+    $( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
 }
