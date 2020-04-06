@@ -14,9 +14,11 @@ function selectCont() {
 	if ( element2.checked ) {
 		document.getElementById("aboutrescont").style.display ="inline-block";
 		document.getElementById("aboutroomcont").style.display ="none";
+		centeringModalSyncer();
 	}else{
 		document.getElementById("aboutroomcont").style.display ="inline-block";
 		document.getElementById("aboutrescont").style.display ="none";
+		centeringModalSyncer();
 	}
 }
 
