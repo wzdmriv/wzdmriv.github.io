@@ -341,15 +341,6 @@ var resAddress;
 			return names;
 		}
 
-		function formatDate(year, month, day) {
-			if(options.useIsoDateFormat) {
-				return new Date(year, month - 1, day, 0, 0, 0).toISOString().substring(0, 10);
-			}
-			if(typeof Intl === "undefined") {
-				return month + "/" + day + "/" + year;
-			}
-			return new Intl.DateTimeFormat(locale).format(new Date(year, month - 1, day, 0, 0, 0));
-		}
 
 		// Use the user's locale if possible to obtain a list of short weekday names, falling back on English
 		function defaultDayNames() {
