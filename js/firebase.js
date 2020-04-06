@@ -17,6 +17,8 @@ function sendData(){
   var starttime = document.forms.resform.sTime.options[num1].value;
   var endtime = document.forms.resform.eTime.options[num2].value;
   var num3 = document.forms.resform.purpose.selectedIndex;
+  var senddate = new Date();
+  var senddate2 = (senddate.getFullYear() + "年" + (senddate.getMonth() + 1)  + "月" + senddate.getDate() + "日" + senddate.getHours() + "時" + senddate.getMinutes() + "分" + senddate.getSeconds() + "秒");
   var purpose = document.forms.resform.purpose.options[num3].value;
   var color;
   switch(purpose){
@@ -43,7 +45,7 @@ function sendData(){
     target.innerHTML = "有効な練習時間を入力してください";
   }else{
     var newPostKey = reslist.push().key;
-    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"pname":pname,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
+    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"sendtime":senddate2,"id":newPostKey,"name":name,"pname":pname,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
     reslist.child("keylist").child(newPostKey).set({address:address});
     target = document.getElementById("errorbox");
     target.innerHTML = "送信完了";
