@@ -41,8 +41,10 @@
 
         <!-- reservationform -->
         <form name="form1" id="resform" action="">
-            <h3>予約名</h3>
-            <input type="text" id="dName" value="" placeholder="Name">
+            <h3>表示名</h3>
+            <input type="text" id="dName" value="" placeholder="Display Name">
+            <h3>予約者名</h3>
+            <input type="text" id="pName" value="" placeholder="Your Name">
             <h3>予約日</h3>
             <div style="display:inline-block; width:250px;">
                 <input type="text" id="mytarget" value="" placeholder="Select Date" readonly>
@@ -98,7 +100,7 @@
             <br><br>
             <div id="errorbox"></div>
             <input type="button" value="送信" onclick="sendData();"/>
-            <br><br>
+            <br><br><br>
         </form>
         <br><br>
         
@@ -138,7 +140,7 @@
                     </div>
                     <div id="aboutroomcont" style="display: none;">
                         <h3 style="border-bottom: solid 2px #222;">部室利用のルール</h3>
-                        <h4>部室のあけ方・閉め方</h4>
+                        <h4>- 部室のあけ方・閉め方 -</h4>
                         <h5 align="left">
                         1.部屋に誰もいない場合:POMPカードをキャンプラ受付に出します。部室の鍵がもらえます。<br>
                         交代する場合:その人にPOMPカードを預け、代わりに受付でカードを交換してもらってください。<br>
@@ -149,7 +151,7 @@
                         部屋に人が残る場合:その人からカードを受け取り、受付で自分のカードと交換してください。<br>
                         </h5>
 
-                        <h4>その他部室利用に関する基本的なルール</h4>
+                        <h4>- その他部室利用に関する基本的なルール -</h4>
                         <h5 align="left">
                         ・練習登録されていない時間は自由に部室を使えます。<br>
                         ・部室の機材は勝手に持ち出さないようにして下さい。<br>

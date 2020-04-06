@@ -7,6 +7,7 @@ var reslist = db.ref("/reslist");
  //入力内容を更新した時
 function sendData(){
   var name = document.forms.resform.dName.value;
+  var pname = document.forms.resform.pName.value;
   var originalselectday  = document.forms.resform.mytarget.value;
   var selectday = "";
   selectday = originalselectday.replace( /\//g , "-" ) ;
@@ -34,7 +35,7 @@ function sendData(){
   }
   var password = document.forms.resform.password.value;
   var address = splitday[0]+"/"+splitday[1]+"/"+splitday[2]+starttime;
-  if (name=="" || selectday=="" || starttime=="" || endtime=="" || color=="" || password==""){
+  if (name=="" || pname=="" || selectday=="" || starttime=="" || endtime=="" || color=="" || password==""){
     target = document.getElementById("errorbox");
     target.innerHTML = "未入力項目があります";
   }else if (Number(endtime) - Number(starttime) <= 0){
@@ -42,7 +43,7 @@ function sendData(){
     target.innerHTML = "有効な練習時間を入力してください";
   }else{
     var newPostKey = reslist.push().key;
-    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
+    reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"id":newPostKey,"name":name,"pname":pname,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
     reslist.child("keylist").child(newPostKey).set({address:address});
     target = document.getElementById("errorbox");
     target.innerHTML = "送信完了";
