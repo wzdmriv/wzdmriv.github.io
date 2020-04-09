@@ -71,6 +71,24 @@ function howtouse(){
     $( window ).resize( centeringModalSyncer ) ;
 }
 
+function password(){
+    $(function(){
+			centeringModalSyncer();
+			$("#passwordconf").fadeIn("fast");
+			//閉じる
+			$("#login").unbind().click(function(){
+				//[#modal-overlay]と[#modal-close]をフェードアウトする
+				$("#passwordconf,#modal-overlay_p").fadeOut("fast",function(){
+					$("#modal-overlay_p").remove();
+				});
+			});
+			$("#clogin").unbind().click(function(){
+				window.close();
+			});
+    });
+    $( window ).resize( centeringModalSyncer ) ;
+}
+
 function centeringModalSyncer() {
 
     //画面(ウィンドウ)の幅、高さを取得
@@ -84,9 +102,12 @@ function centeringModalSyncer() {
     var cw = $( "#modal-content" ).outerWidth();
 	var ch = $( "#modal-content" ).outerHeight();
 	var ccw = $( "#howtopop" ).outerWidth();
-    var cch = $( "#howtopop" ).outerHeight();
+	var cch = $( "#howtopop" ).outerHeight();
+	var cccw = $( "#passwordconf" ).outerWidth();
+    var ccch = $( "#passwordconf" ).outerHeight();
 
     //センタリングを実行する
 	$( "#modal-content" ).css( {"left": ((w - cw)/2) + "px","top": ((h - ch)/2) + "px"} ) ;
 	$( "#howtopop" ).css( {"left": ((w - ccw)/2) + "px","top": ((h - cch)/2) + "px"} ) ;
+	$( "#passwordconf" ).css( {"left": ((w - cccw)/2) + "px","top": ((h - ccch)/2) + "px"} ) ;
 }

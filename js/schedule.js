@@ -1,7 +1,7 @@
 $(window).load( function() {
 $('#mycalendar').monthly({
     mode: 'event',
-    jsonUrl: 'events.json',
+    jsonUrl: '',
     dataType: 'json',
     eventList:true
 });

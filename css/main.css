@@ -4,7 +4,7 @@ body, html {
                 text-align:center;
                 color:#222;
                 line-height: 1.4em;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
             }
             
             body {
@@ -12,32 +12,34 @@ body, html {
                 background: #eee;
             }
             h1 {
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 text-align: center;
                 font-size: 50px;
                 color:#222;
                 /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.2); */
             }
             h2 {
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
-                font-size:37px;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-size:40px;
                 /* text-shadow: 0 0px 10px rgba(0, 0, 0, 0.3); */
                 color:#222;
             }
             h3{
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 color:#222;
                 font-size:22px;
+                font-weight: normal;
             }
             h4{
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 color:#222;
                 font-size:18px;
             }
             h5{
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 color:#333;
                 font-size:16px;
+                font-weight: normal;
             }
             .monthly {
                 /* box-shadow: 0 13px 40px rgba(0, 0, 0, 0.5); */
@@ -55,6 +57,18 @@ body, html {
                 display: none;
             }
             #howtopop{
+	            width:720px;
+	            margin:1.5em auto 0;
+	            padding:10px 20px;
+	            border:2px solid #aaa;
+	            background:#fff;
+                z-index:20;
+                position:fixed;
+                display: none;
+                max-height: 70%;
+                overflow: auto;
+            }
+            #passwordconf{
 	            width:720px;
 	            margin:1.5em auto 0;
 	            padding:10px 20px;
@@ -85,13 +99,23 @@ body, html {
             }
             #modal-overlay{
 	            z-index:1;
-	            display:none;
+	            display:block;
 	            position:fixed;
 	            top:0;
 	            left:0;
 	            width:100%;
 	            height:120%;
                 background-color:rgba(0,0,0,0.75);
+            }
+            #modal-overlay_p{
+	            z-index:1;
+	            display:block;
+	            position:fixed;
+	            top:0;
+	            left:0;
+	            width:100%;
+	            height:120%;
+                background-color:#eee;
             }
             input[type="radio"]{
                 display: none;
@@ -105,26 +129,26 @@ body, html {
                 float: left;
                 padding: 7px;
                 border-radius: 2px;
-                font-size: 16px;
+                font-size: 18px;
                 outline: none;
                 border: 2px solid #ddd;
                 background: #eee;
                 color: #222;
                 width: 170px;
                 box-sizing: border-box;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
             }
             input[type="text"]{
                 padding: 10px;
                 border-radius: 2px;
-                font-size: 16px;
+                font-size: 18px;
                 outline: none;
                 border: 2px solid rgba(255, 255, 255, 0.5);
                 background: rgba(63, 78, 100, 0.27);
                 color: #222;
                 width: 200px;
                 box-sizing: border-box;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
             }
             input[type="text"]:hover {
                 border: 2px solid rgba(255, 255, 255, 0.7);
@@ -137,14 +161,14 @@ body, html {
             input[type="button"]:not(.howtouse){
                 padding: 7px;
                 border-radius: 2px;
-                font-size: 16px;
+                font-size: 18px;
                 outline: none;
                 border: 2px solid #ddd;
                 background: #eee;
                 color: #222;
                 width: 150px;
                 box-sizing: border-box;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 -webkit-appearance: none;
             }
             input[type="button"]:hover {
@@ -164,7 +188,7 @@ body, html {
                 color: #222;
                 width: 200px;
                 box-sizing: border-box;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 -webkit-appearance: none;
             }
             .button {
@@ -205,14 +229,14 @@ body, html {
             .howtouse{
                 padding: 3px;
                 border-radius: 2px;
-                font-size: 16px;
+                font-size: 18px;
                 outline: none;
                 border: 2px solid #ddd;
                 background: #eee;
                 color: #222;
                 width: 120px;
                 box-sizing: border-box;
-                font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
+                font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
                 -webkit-appearance: none;
             }
             form{
