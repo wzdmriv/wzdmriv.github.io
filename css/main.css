@@ -292,7 +292,6 @@ body, html {
                 form{
                     display:none;
                     width: 95%;
-                    height: 700px;
                     border: 2px solid #ddd;
                     margin: 5px;
                 }
@@ -300,9 +299,9 @@ body, html {
                     width: 130px;
                 }
                 input[type="text"]{
-                    width: 45%;
+                    max-width: 70%;
                 }
                 input[type="button"]{
-                    width: 45%;
+                    max-width: 45%;
                 }
             }
