@@ -22,6 +22,54 @@ function selectCont() {
 	}
 }
 
+//データ送信
+function sendData(){
+	var name = document.forms.resform.dName.value;
+	var pname = document.forms.resform.pName.value;
+	var originalselectday  = document.forms.resform.mytarget.value;
+	var selectday = "";
+	selectday = originalselectday.replace( /\//g , "-" ) ;
+	var splitday =    selectday.split("-");
+	var num1 = document.forms.resform.sTime.selectedIndex;
+	var num2 = document.forms.resform.eTime.selectedIndex;
+	var starttime = document.forms.resform.sTime.options[num1].value;
+	var endtime = document.forms.resform.eTime.options[num2].value;
+	var num3 = document.forms.resform.purpose.selectedIndex;
+	var senddate = new Date();
+	var senddate2 = (senddate.getFullYear() + "年" + (senddate.getMonth() + 1)  + "月" + senddate.getDate() + "日" + senddate.getHours() + "時" + senddate.getMinutes() + "分" + senddate.getSeconds() + "秒");
+	var purpose = document.forms.resform.purpose.options[num3].value;
+	var color;
+	switch(purpose){
+		case "ind":
+			color = "#008000";
+			break;
+		case "band":
+			color = "#dc143c";
+			break;
+		case "sess":
+			color = "#9400d3";
+			break;
+		case "other":
+			color = "#ff8c00";
+			break;
+	}
+	var password = document.forms.resform.password.value;
+	var address = splitday[0]+"/"+splitday[1]+"/"+splitday[2]+starttime;
+	if (name=="" || pname=="" || selectday=="" || starttime=="" || endtime=="" || color=="" || password==""){
+	  target = document.getElementById("errorbox");
+	  target.innerHTML = "未入力項目があります";
+	}else if (Number(endtime) - Number(starttime) <= 0){
+	  target = document.getElementById("errorbox");
+	  target.innerHTML = "有効な練習時間を入力してください";
+	}else{
+	  var newPostKey = reslist.push().key;
+	  reslist.child(splitday[0]).child(splitday[1]).child(splitday[2]+starttime).child(newPostKey).set({"sendtime":senddate2,"id":newPostKey,"name":name,"pname":pname,"startdate":selectday,"enddate":"","starttime":starttime,"endtime":endtime,"color":color,"password":password,"url":""});
+	  reslist.child("keylist").child(newPostKey).set({address:address});
+	  target = document.getElementById("errorbox");
+	  target.innerHTML = "送信完了";
+	  window.location.reload();
+	}
+  }
 //データ削除
 function deleteData(){
     var password = document.getElementById("dpassword").value;
@@ -30,7 +78,8 @@ function deleteData(){
         reslist.child("leylist").child(resKey).remove();
         target = document.getElementById("errorbox2");
         target.innerHTML = "削除が完了しました";
-        window.location.reload();
+		window.location.reload();
+		
     }else{
         target = document.getElementById("errorbox2");
         target.innerHTML = "パスワードが違います";
@@ -72,7 +121,11 @@ function howtouse(){
 }
 
 function password(){
-    $(function(){
+	$(function(){
+		if ($.cookie('btnFlg') == 'on'){
+			$("#modal-overlay_p").remove();
+		}else{
+    
 			centeringModalSyncer();
 			$("#passwordconf").fadeIn("fast");
 			var username, password;
@@ -90,6 +143,7 @@ function password(){
 					$("#passwordconf,#modal-overlay_p").fadeOut("fast",function(){
 						$("#modal-overlay_p").remove();
 					});
+					$.cookie('btnFlg', 'on', { expires: 1,path: '/' });
 				}else{
 					errorbox = document.getElementById("errorbox3");
     				errorbox.innerHTML = "無効なパスワードです";
@@ -98,7 +152,8 @@ function password(){
 			$("#clogin").unbind().click(function(){
 				$("#passwordconf").fadeOut("fast",function(){});
 			});
-    });
+	}});
+	
     $( window ).resize( centeringModalSyncer ) ;
 }
 

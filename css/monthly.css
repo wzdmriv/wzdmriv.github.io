@@ -326,9 +326,7 @@
 	text-decoration: none;
 }
 
-.item-has-event {
-	display: block;
-}
+
 
 .item-has-event:after{
     display: none!important;
