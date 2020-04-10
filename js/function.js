@@ -83,7 +83,7 @@ function password(){
 				});
 			});
 			$("#clogin").unbind().click(function(){
-				window.close();
+				$("#passwordconf").fadeOut("fast",function(){});
 			});
     });
     $( window ).resize( centeringModalSyncer ) ;
