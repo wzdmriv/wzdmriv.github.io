@@ -75,12 +75,25 @@ function password(){
     $(function(){
 			centeringModalSyncer();
 			$("#passwordconf").fadeIn("fast");
+			var username, password;
+			db.ref("/pass/username").once('value').then(function(snapshot) {
+				username = snapshot.val();
+			});
+			db.ref("/pass/password").once('value').then(function(snapshot) {
+				password = snapshot.val();
+			});
 			//閉じる
 			$("#login").unbind().click(function(){
-				//[#modal-overlay]と[#modal-close]をフェードアウトする
-				$("#passwordconf,#modal-overlay_p").fadeOut("fast",function(){
-					$("#modal-overlay_p").remove();
-				});
+				var iusername = document.getElementById("username").value;
+				var ipassword = document.getElementById("cpassword").value;
+				if (username == iusername && password == ipassword){
+					$("#passwordconf,#modal-overlay_p").fadeOut("fast",function(){
+						$("#modal-overlay_p").remove();
+					});
+				}else{
+					errorbox = document.getElementById("errorbox3");
+    				errorbox.innerHTML = "無効なパスワードです";
+				}
 			});
 			$("#clogin").unbind().click(function(){
 				$("#passwordconf").fadeOut("fast",function(){});
