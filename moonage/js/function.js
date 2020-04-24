@@ -4,5 +4,7 @@ function centeringOrbit() {
     var h = $( window ).height() ;
     //センタリングを実行する
     $( ".wrapper" ).css( {"left": ((w/2)-2000) + "px","top": (h/2) + "px"} ) ;
+    $( ".field" ).css( {"width": w + "px","height": h + "px"} ) ;
+
     $( window ).resize( centeringOrbit ) ;
 }

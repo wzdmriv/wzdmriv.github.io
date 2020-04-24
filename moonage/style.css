@@ -110,8 +110,13 @@
   animation:move-clouds-back 200s linear infinite;
 }
 
+.field {
+    width: opt;
+    height: 0pt;
+    overflow: hidden;
+}
 .wrapper {
-    position: absolute;
+    position: relative;
     top: 0px;
     left: 0px;
     width: 4000px;
