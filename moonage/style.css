@@ -2,19 +2,19 @@
 
 @keyframes move-twink-back {
     from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+    to {background-position:10000px 5000px;}
 }
 @-webkit-keyframes move-twink-back {
     from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+    to {background-position:10000px 5000px;}
 }
 @-moz-keyframes move-twink-back {
     from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+    to {background-position:10000px 5000px;}
 }
 @-ms-keyframes move-twink-back {
     from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+    to {background-position:10000px 5000px;}
 }
 
 @keyframes move-clouds-back {
@@ -32,6 +32,31 @@
 @-ms-keyframes move-clouds-back {
     from {background-position: 0;}
     to {background-position:10000px 0;}
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@keyframes rotate2 {
+    0% {
+        transform: rotate(120deg);
+    }
+    100% {
+        transform: rotate(480deg);
+    }
+}
+@keyframes rotate3 {
+    0% {
+        transform: rotate(240deg);
+    }
+    100% {
+        transform: rotate(600deg);
+    }
 }
 
 .stars, .twinkling, .clouds, .moon{
@@ -83,4 +108,39 @@
   -o-animation:move-clouds-back 200s linear infinite;
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
+}
+
+.wrapper {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 4000px;
+    height: 4000px;
+    border: #ffffff 2px solid;
+    border-radius: 50%;
+}
+.circle-frame, .circle-frame2, .circle-frame3 {
+    position: absolute;
+    top: -5px;
+    left: calc(50% - 5px);
+    width: 10px;
+    height: calc(50% + 5px);
+    transform-origin: center bottom;
+    transform: rotate(0deg);
+}
+.circle-frame { 
+    animation: rotate 10s linear infinite;
+}
+.circle-frame2 { 
+    animation: rotate2 10s linear infinite;
+}
+.circle-frame3 { 
+    animation: rotate3 10s linear infinite;
+}
+
+.circle, .circle2, .circle3 {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background: white;
 }
