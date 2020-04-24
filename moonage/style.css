@@ -34,7 +34,7 @@
     to {background-position:10000px 0;}
 }
 
-.stars, .twinkling, .clouds {
+.stars, .twinkling, .clouds, .moon{
   position:absolute;
   top:0;
   left:0;
@@ -59,6 +59,19 @@
   -o-animation:move-twink-back 200s linear infinite;
   -webkit-animation:move-twink-back 200s linear infinite;
   animation:move-twink-back 200s linear infinite;
+}
+
+.moonimg{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    max-width:50%;
+    max-height:50%;
+    display:block;
+    z-index:2;
 }
 
 .clouds{
