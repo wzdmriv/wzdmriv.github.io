@@ -7,7 +7,12 @@ body, html {
     font-family: "M PLUS Rounded 1c","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ","Meiryo", Helvetica, SegoeUI, sans-serif;
 }
 
-
+p{
+    font-size: 32px;
+    color: #ffffff;
+    position: absolute;
+    z-index: 5;
+}
 @keyframes move-twink-back {
     from {background-position:0 0;}
     to {background-position:10000px 5000px;}
@@ -101,8 +106,8 @@ body, html {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:50%;
-    max-height:50%;
+    max-width:40%;
+    max-height:40%;
     display:block;
     z-index:2;
 }
