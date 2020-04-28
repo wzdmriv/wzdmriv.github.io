@@ -10,7 +10,11 @@ function centeringOrbit() {
 }
 
 function getMoonage(){
-    $.getJSON('https://mgpn2.sakura.ne.jp/api/moon/position.cgi?json&lat=35.0000&lon=140.0000')
+    $.ajax({
+        type: "GET",
+        url: 'https://mgpn2.sakura.ne.jp/api/moon/position.cgi?json&lat=35.0000&lon=140.0000',
+        dataType:"json"
+    })
     .done(function(data) {
         $('p').text( JSON.stringify(data) );
         // 中身が空でなければ、その値を［住所］欄に反映
@@ -26,8 +30,10 @@ function getMoonage(){
             testbox.innerHTML = "エラー";
         }
     })
-    .fail(function(){
-        testbox = document.getElementById("testbox");
-            testbox.innerHTML = "成功１";
-    });
+    .error(function(XMLHttpRequest, textStatus, errorThrown) {
+    alert('error!!!');
+　　console.log("XMLHttpRequest : " + XMLHttpRequest.status);
+　　console.log("textStatus     : " + textStatus);
+　　console.log("errorThrown    : " + errorThrown.message);
+});
 }
