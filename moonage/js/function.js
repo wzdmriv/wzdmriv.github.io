@@ -10,7 +10,14 @@ function centeringOrbit() {
 }
 
 function getMoonage(){
-    $.ajax({
+    fetch('https://mgpn2.sakura.ne.jp/api/moon/position.cgi?json&lat=35.0000&lon=140.0000',{mode:'cors'})
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(myJson) {
+    console.log(JSON.stringify(myJson));
+  });
+    /*$.ajax({
         type: "GET",
         url: 'https://mgpn2.sakura.ne.jp/api/moon/position.cgi?json&lat=35.0000&lon=140.0000',
         dataType:"json"
@@ -35,5 +42,5 @@ function getMoonage(){
 　　console.log("XMLHttpRequest : " + XMLHttpRequest.status);
 　　console.log("textStatus     : " + textStatus);
 　　console.log("errorThrown    : " + errorThrown.message);
-});
+});*/
 }
