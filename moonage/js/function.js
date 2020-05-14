@@ -45,10 +45,12 @@ function centeringOrbit() {
     //画面(ウィンドウ)の幅、高さを取得
     var w = $( window ).width() ;
     var h = $( window ).height() ;
+    var wh = Math.min(350,Math.min(w,h)*0.45);
     //センタリングを実行する
     $( ".wrapper" ).css( {"left": ((w/2)-4000) + "px","top": (h/2) + "px"} ) ;
     $( ".field" ).css( {"width": w + "px","height": h + "px"} ) ;
-
+    $( "#modal-overlay" ).css( {"width": w + "px","height": h + "px"} ) ;
+    $( "#moonb2" ).css( {"width": wh + "px","height": wh + "px"} ) ;
     $( window ).resize( centeringOrbit ) ;
 }
 

@@ -212,13 +212,11 @@ h2 {
     bottom: 0;
     right: 0;
     left: 0;
-    margin: auto;
-    max-width:45%;
-    max-height:45%;
+    margin: 1%;
     display:block;
     z-index:13;
-    width: 350px;
-	height: 350px;
+    max-width: 100%;
+	max-height: 100%;
     border-radius: 50%;
     background-color:rgb(255,238,183);
 }
@@ -229,13 +227,11 @@ h2 {
     bottom: 0;
     right: 0;
     left: 0;
-    margin: auto;
-    max-width:45%;
-    max-height:45%;
+    margin: 1pt;
     display:block;
     z-index:12;
-    width: 360px;
-	height: 360px;
+    max-width: 100%;
+	max-height: 100%;
     border-radius: 50%;
     background:linear-gradient(0deg,black 0%,black 50%,white 50%,white 100%);
 }
@@ -246,12 +242,10 @@ h2 {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:45%;
-    max-height:45%;
     display:block;
     z-index:11;
-    width: 362px;
-	height: 362px;
+    width: 350px;
+    height: 350px;
     border-radius: 50%;
     background-color: black;
 }
