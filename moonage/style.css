@@ -217,8 +217,8 @@ h2 {
     max-height:60%;
     display:block;
     z-index:13;
-    width: 250px;
-	height: 250px;
+    width: 350px;
+	height: 350px;
     border-radius: 50%;
     background-color:rgb(255,238,183);
 }
@@ -234,8 +234,8 @@ h2 {
     max-height:60%;
     display:block;
     z-index:12;
-    width: 260px;
-	height: 260px;
+    width: 360px;
+	height: 360px;
     border-radius: 50%;
     background:linear-gradient(0deg,black 0%,black 50%,white 50%,white 100%);
 }
@@ -250,8 +250,8 @@ h2 {
     max-height:60%;
     display:block;
     z-index:11;
-    width: 262px;
-	height: 262px;
+    width: 362px;
+	height: 362px;
     border-radius: 50%;
     background-color: black;
 }
