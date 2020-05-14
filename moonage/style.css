@@ -127,8 +127,8 @@ h2 {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:40%;
-    max-height:40%;
+    max-width:60%;
+    max-height:60%;
     display:block;
     z-index:2;
 }
@@ -213,8 +213,8 @@ h2 {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:40%;
-    max-height:40%;
+    max-width:60%;
+    max-height:60%;
     display:block;
     z-index:13;
     width: 250px;
@@ -230,8 +230,8 @@ h2 {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:40%;
-    max-height:40%;
+    max-width:60%;
+    max-height:60%;
     display:block;
     z-index:12;
     width: 260px;
@@ -246,8 +246,8 @@ h2 {
     right: 0;
     left: 0;
     margin: auto;
-    max-width:40%;
-    max-height:40%;
+    max-width:60%;
+    max-height:60%;
     display:block;
     z-index:11;
     width: 262px;
