@@ -1,8 +1,9 @@
-var doc;
 var flag = 1;
 
 
 function setting(){
+    getMoonage();
+    centeringOrbit();
     $(function(){
         $("#screen").unbind().click(function(){
             if (flag==1){
@@ -18,9 +19,6 @@ function setting(){
             }
         });
     })
-    getMoonage();
-    centeringOrbit();
-
 }
 
 
@@ -32,11 +30,13 @@ function getMoonage(){
       var data = this.response;
       console.log(data);
       const parser = new DOMParser();
-      doc = parser.parseFromString(data, "text/xml");
-      testbox = document.getElementById("testbox");
+      var doc = parser.parseFromString(data, "text/xml");
+      testbox = document.getElementById("moonage");
       var con = doc.getElementsByTagName('age');
-            testbox.innerHTML = con[0].textContent;
-    };
+      var con2 = con[0].textContent;
+      var con3 = con2.slice(0,-2);
+      testbox.innerHTML = con3;
+    }
     request.send();
 }
 
@@ -46,7 +46,7 @@ function centeringOrbit() {
     var w = $( window ).width() ;
     var h = $( window ).height() ;
     //センタリングを実行する
-    $( ".wrapper" ).css( {"left": ((w/2)-2000) + "px","top": (h/2) + "px"} ) ;
+    $( ".wrapper" ).css( {"left": ((w/2)-4000) + "px","top": (h/2) + "px"} ) ;
     $( ".field" ).css( {"width": w + "px","height": h + "px"} ) ;
 
     $( window ).resize( centeringOrbit ) ;
