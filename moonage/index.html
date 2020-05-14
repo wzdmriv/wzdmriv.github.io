@@ -9,29 +9,32 @@
 <body>
     <header>
     </header>
-    <p id="testbox">hello</p>
-    <div class="stars"></div>
-    <div class="twinkling"></div>
-    <div class="field">
-    <div class="wrapper" id="wrapper">
-        <div class="circle-frame">
-            <div class="circle"></div>
+    <div class=layer1>
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="field">
+        <div class="wrapper" id="wrapper">
+            <div class="circle-frame">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-frame2">
+                <div class="circle2"></div>
+            </div>
+            <div class="circle-frame3">
+                <div class="circle3"></div>
+            </div>
         </div>
-        <div class="circle-frame2">
-            <div class="circle2"></div>
         </div>
-        <div class="circle-frame3">
-            <div class="circle3"></div>
+        <div class="moon">
+            <img class="moonimg" src="images/moon.png">
         </div>
+        <div class="clouds"></div>
     </div>
-    </div>
-    <div class="moon">
-        <img class="moonimg" src="images/moon.png">
-    </div>
-    <div class="clouds"></div>
+    <div class=layer2><div id=modal-overlay></div><div id=moonb></div><div id=moonb2></div><div id=moond></div></div>
+    <div id=screen></div>
+
     <script type="text/javascript">
-        centeringOrbit();
-        getMoonage();
+        setting();
     </script>
 </body>
 </html>
