@@ -257,8 +257,8 @@ h2 {
     position: absolute;
     margin: auto;
     z-index:10;
-    width: 10px;
-    height: 10px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: white;
     top: 1000px;

@@ -62,16 +62,16 @@ function centeringOrbit() {
     $( "#modal-overlay" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#moonb2" ).css( {"width": wh + "px","height": wh + "px"} ) ;
     if (moonh>=0){
-        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-5;
-        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-5;
+        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-8;
+        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-8;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }else if (moonl>=0&&moonl<=180){
-        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-5;
-        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-5;
+        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-8;
+        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-8;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }else if (moonl>180&&moonl<360){
-        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-5;
-        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-5;
+        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-8;
+        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-8;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }
     $( window ).resize( centeringOrbit ) ;
