@@ -197,7 +197,7 @@ h2 {
     display:none;
 }
 #modal-overlay{
-    z-index:10;
+    z-index:9;
     display:block;
     position:fixed;
     top:0;
@@ -248,4 +248,19 @@ h2 {
     height: 350px;
     border-radius: 50%;
     background-color: black;
+}
+#moon_h,#moon_l{
+    display: none;
+}
+
+#mcircle {
+    position: absolute;
+    margin: auto;
+    z-index:10;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: white;
+    top: 1000px;
+    left : 200px;
 }

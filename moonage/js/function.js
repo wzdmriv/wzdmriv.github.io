@@ -1,6 +1,5 @@
 var flag = 1;
 
-
 function setting(){
     getMoonage();
     centeringOrbit();
@@ -8,6 +7,7 @@ function setting(){
         $("#screen").unbind().click(function(){
             if (flag==1){
                 $(".layer1").fadeOut("fast",function(){
+                    centeringOrbit();
                     $(".layer2").fadeIn("fast");
                 });
                 flag = 2
@@ -25,17 +25,25 @@ function setting(){
 function getMoonage(){
     var request = new XMLHttpRequest();
     request.open('GET', 'https://mgpn2.sakura.ne.jp/api/moon/position.cgi?lat=35.0000&lon=140.0000', true);
- 
+    var data;
     request.onload = function () {
-      var data = this.response;
+      data = this.response;
       console.log(data);
       const parser = new DOMParser();
       var doc = parser.parseFromString(data, "text/xml");
       testbox = document.getElementById("moonage");
+      testbox1 = document.getElementById("moon_h");
+      testbox2 = document.getElementById("moon_l");
       var con = doc.getElementsByTagName('age');
       var con2 = con[0].textContent;
       var con3 = con2.slice(0,-2);
+      var con_h = doc.getElementsByTagName('altitude');
+      var con_h2 = con_h[0].textContent;
+      var con_l = doc.getElementsByTagName('azimuth');
+      var con_l2 = con_l[0].textContent;
       testbox.innerHTML = con3;
+      testbox1.innerHTML = con_h2;
+      testbox2.innerHTML = con_l2;
     }
     request.send();
 }
@@ -46,11 +54,26 @@ function centeringOrbit() {
     var w = $( window ).width() ;
     var h = $( window ).height() ;
     var wh = Math.min(350,Math.min(w,h)*0.45);
+    var moonh = document.getElementById("moon_h").innerHTML;
+    var moonl = document.getElementById("moon_l").innerHTML;
     //センタリングを実行する
     $( ".wrapper" ).css( {"left": ((w/2)-4000) + "px","top": (h/2) + "px"} ) ;
     $( ".field" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#modal-overlay" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#moonb2" ).css( {"width": wh + "px","height": wh + "px"} ) ;
+    if (moonh>=0){
+        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-5;
+        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-5;
+        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+    }else if (moonl>=0&&moonl<=180){
+        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-5;
+        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-5;
+        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+    }else if (moonl>180&&moonl<360){
+        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-5;
+        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-5;
+        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+    }
     $( window ).resize( centeringOrbit ) ;
 }
 
