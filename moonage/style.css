@@ -206,6 +206,31 @@ h2 {
     height:120%;
     background-color:rgb(4,52,63);
 }
+#moonm{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 0px;
+    display:block;
+    z-index:14;
+    max-width: 100%;
+	max-height: 100%;
+    border-radius: 50%;
+}
+#moonm2{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: 0px;
+    display:block;
+    z-index:15;
+    max-width: 100%;
+	max-height: 100%;
+    border-radius: 50%;
+}
+
 #moond{
     position: absolute;
     top: 0;
@@ -218,7 +243,7 @@ h2 {
     max-width: 100%;
 	max-height: 100%;
     border-radius: 50%;
-    background-color:rgb(255,238,183);
+    background-color: black;
 }
 
 #moonb{
@@ -227,7 +252,7 @@ h2 {
     bottom: 0;
     right: 0;
     left: 0;
-    margin: 1pt;
+    margin: 0px;
     display:block;
     z-index:12;
     max-width: 100%;
@@ -249,7 +274,7 @@ h2 {
     border-radius: 50%;
     background-color: black;
 }
-#moon_h,#moon_l{
+#moon_h,#moon_l,#moonage{
     display: none;
 }
 
@@ -257,8 +282,8 @@ h2 {
     position: absolute;
     margin: auto;
     z-index:10;
-    width: 16px;
-    height: 16px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
     background: white;
     top: 1000px;

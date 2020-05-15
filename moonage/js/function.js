@@ -44,6 +44,7 @@ function getMoonage(){
       testbox.innerHTML = con3;
       testbox1.innerHTML = con_h2;
       testbox2.innerHTML = con_l2;
+      moonshape();
     }
     request.send();
 }
@@ -62,21 +63,43 @@ function centeringOrbit() {
     $( "#modal-overlay" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#moonb2" ).css( {"width": wh + "px","height": wh + "px"} ) ;
     if (moonh>=0){
-        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-8;
-        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-8;
+        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-7;
+        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-7;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }else if (moonl>=0&&moonl<=180){
-        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-8;
-        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-8;
+        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-7;
+        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-7;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }else if (moonl>180&&moonl<360){
-        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-8;
-        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-8;
+        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-7;
+        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-7;
         $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
     }
+
     $( window ).resize( centeringOrbit ) ;
 }
 
+function moonshape(){
+    var moonage = document.getElementById("moonage").innerHTML;
+    if (moonage>=0&&moonage<7.5) {
+        var width = moonage*100/7.5;
+        $( "#moonm" ).css( {"background":"linear-gradient(90deg,rgb(4,52,63) 0%,rgb(4,52,63) 50%,rgb(255,238,183) 50%,rgb(255,238,183) 100%)"} ) ;
+        $( "#moonm2" ).css( {"backgroundcolor":"rgb(4,52,63)","left":(100-width)/2 + "%","width":width + "%"} ) ;
+    }else if (moonage>=7.5&&moonage<15) {
+        var width = (moonage-7.5)*100/7.5;
+        $( "#moonm" ).css( {"background":"linear-gradient(90deg,rgb(4,52,63) 0%,rgb(4,52,63) 50%,rgb(255,238,183) 50%,rgb(255,238,183) 100%)"} ) ;
+        $( "#moonm2" ).css( {"backgroundcolor":"rgb(255,238,183)","left":(100-width)/2 + "%","width":width + "%"} ) ;
+    }else if (moonage>=15&&moonage<22.5) {
+        var width = (22.5-moonage)*100/7.5;
+        $( "#moonm" ).css( {"background":"linear-gradient(270deg,rgb(4,52,63) 0%,rgb(4,52,63) 50%,rgb(255,238,183) 50%,rgb(255,238,183) 100%)"} ) ;
+        $( "#moonm2" ).css( {"backgroundcolor":"rgb(255,238,183)","left":(100-width)/2 + "%","width":width + "%"} ) ;
+    }else if (moonage>=22.5&&moonage<=30) {
+        var width = (moonage-22.5)*100/7.5;
+        $( "#moonm" ).css( {"background":"linear-gradient(270deg,rgb(4,52,63) 0%,rgb(4,52,63) 50%,rgb(255,238,183) 50%,rgb(255,238,183) 100%)"} ) ;
+        $( "#moonm2" ).css( {"background-color":"rgb(4,52,63)","left":(100-width)/2 + "%","width":width + "%"} ) ;
+        console.log(width);
+    }
+}
 
 /*function changeBGColor(r, g, b) {
     var img = new Image();
