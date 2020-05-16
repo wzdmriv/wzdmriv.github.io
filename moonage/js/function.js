@@ -2,7 +2,6 @@ var flag = 1;
 
 function setting(){
     getMoonage();
-    centeringOrbit();
     $(function(){
         $("#screen").unbind().click(function(){
             if (flag==1){
@@ -45,6 +44,7 @@ function getMoonage(){
       testbox1.innerHTML = con_h2;
       testbox2.innerHTML = con_l2;
       moonshape();
+      centeringOrbit();
     }
     request.send();
 }
