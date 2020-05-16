@@ -197,7 +197,7 @@ h2 {
     display:none;
 }
 #modal-overlay{
-    z-index:9;
+    z-index:0;
     display:block;
     position:fixed;
     top:0;
@@ -286,6 +286,4 @@ h2 {
     height: 14px;
     border-radius: 50%;
     background: white;
-    top: 1000px;
-    left : 200px;
 }

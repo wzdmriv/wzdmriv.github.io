@@ -58,22 +58,25 @@ function centeringOrbit() {
     var moonh = document.getElementById("moon_h").innerHTML;
     var moonl = document.getElementById("moon_l").innerHTML;
     //センタリングを実行する
-    $( ".wrapper" ).css( {"left": ((w/2)-4000) + "px","top": (h/2) + "px"} ) ;
     $( ".field" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#modal-overlay" ).css( {"width": w + "px","height": h + "px"} ) ;
     $( "#moonb2" ).css( {"width": wh + "px","height": wh + "px"} ) ;
     if (moonh>=0){
-        var top = (h/2) - moonh*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-7;
-        var left = (w/2) + (moonl-180)*wh/(2*(moonh**2+(moonl-180)**2)**(1/2))-7;
-        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+        var top = moonh/(2*(moonh**2+(moonl-180)**2)**(1/2));
+        var left = (moonl-180)/(2*(moonh**2+(moonl-180)**2)**(1/2));
+        $( "#mcircle" ).css( {"left": (w/2) + left*wh -7 + "px","top": (h/2) - top*wh -7 + "px"} ) ;
+        $( ".wrapper" ).css( {"left": (w/2)-4000-left*8000 + "px","top": (h/2)-4000+top*8000 + "px"} ) ;
+        console.log(top);
     }else if (moonl>=0&&moonl<=180){
-        var top = (h/2) - moonh*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-7;
-        var left = (w/2) - moonl*wh/(2*(((moonh)**2+moonl**2)**(1/2)))-7;
-        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+        var top = moonh/(2*(((moonh)**2+moonl**2)**(1/2)));
+        var left = -moonl/(2*(((moonh)**2+moonl**2)**(1/2)));
+        $( "#mcircle" ).css( {"left": (w/2) + left*wh -7 + "px","top": (h/2) - top*wh -7 + "px"} ) ;
+        $( ".wrapper" ).css( {"left": (w/2)-4000-left*8000 + "px","top": (h/2)-4000+top*8000 + "px"} ) ;
     }else if (moonl>180&&moonl<360){
-        var top = (h/2) - moonh*wh/(2*((moonh)**2+(360-moonl)**2)**(1/2))-7;
-        var left = (w/2) + (360-moonl)*wh/(2*((moonh)**2+((360-moonl)**2))**(1/2))-7;
-        $( "#mcircle" ).css( {"left": left + "px","top": top + "px"} ) ;
+        var top = moonh/(2*((moonh)**2+(360-moonl)**2)**(1/2));
+        var left = (360-moonl)/(2*((moonh)**2+((360-moonl)**2))**(1/2));
+        $( "#mcircle" ).css( {"left": (w/2) + left*wh -7 + "px","top": (h/2) - top*wh -7 + "px"} ) ;
+        $( ".wrapper" ).css( {"left": (w/2)-4000-left*8000 + "px","top": (h/2)-4000+top*8000 + "px"} ) ;
     }
 
     $( window ).resize( centeringOrbit ) ;
@@ -97,7 +100,6 @@ function moonshape(){
         var width = (moonage-22.5)*100/7.5;
         $( "#moonm" ).css( {"background":"linear-gradient(270deg,rgb(4,52,63) 0%,rgb(4,52,63) 50%,rgb(255,238,183) 50%,rgb(255,238,183) 100%)"} ) ;
         $( "#moonm2" ).css( {"background-color":"rgb(4,52,63)","left":(100-width)/2 + "%","width":width + "%"} ) ;
-        console.log(width);
     }
 }
 
